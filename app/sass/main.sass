@@ -1,0 +1,87 @@
+@import "vars"
+@import "fonts"
+@import "libs"
+
+*
+  padding: 0
+  margin: 0
+  box-sizing: border-box
+  &:after, &:before
+    box-sizing: border-box
+
+::placeholder
+  color: #666
+
+::selection
+  background-color: $accent
+  color: #fff
+
+html, body
+  height: 100%
+
+body
+  font-size: 16px
+  min-width: 320px
+  position: relative
+  line-height: 1.4
+  font-family: $default-font
+  overflow-x: hidden
+  cursor: default
+  input, textarea
+    border: #666 1px solid
+    outline: none
+    &:focus:required:invalid
+      border-color: red
+    &:required:valid
+      border-color: green
+
+// Уведомление об успешной отправке
+.success
+  position: absolute
+  top: 0
+  left: 0
+  right: 0
+  bottom: 0
+  text-transform: uppercase
+  font-weight: 600
+  z-index: 100
+  font-size: 20px
+  display: none
+  align-items: center
+  justify-content: center
+  & ~ *
+    transition: all .5s ease
+  &.active
+    & ~ *
+      opacity: .5
+      filter: blur(10px)
+// end
+
+// Стартовые стили
+.hidden
+  display: none
+
+.trans
+  transition: all .4s ease
+
+a
+  @extend .trans
+  outline: none
+  text-decoration: none
+  display: inline-block
+  &:hover, &:focus, &:active
+    text-decoration: none
+    outline: none
+
+ul
+  list-style-type: none
+
+h1, h2, h3, h4
+  font-weight: 600
+
+
+//end
+
+
+
+@import "media" // Always at the end
